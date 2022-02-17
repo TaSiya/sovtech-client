@@ -1,13 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Home from "./components/Home";
+import { 
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes
+} from "react-router-dom"
+import ContextProvider from "./components/App-context-provider";
+import PersonProfile from "./components/Person-profile";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Router>
+      <ContextProvider>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/people/:name' element={<PersonProfile  />} />
+        </Routes>
+         
+      </ContextProvider>
+    </Router>
   );
 }
 
