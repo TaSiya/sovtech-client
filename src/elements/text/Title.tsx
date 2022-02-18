@@ -7,7 +7,7 @@ type Props = {
 
 function Title({title}: Props) {
   return (
-    <Typography sx={{ fontSize: 14 }}  variant="h1" color="text.primary">
+    <Typography sx={{ }}  variant="h6" color="text.primary">
       {title}
     </Typography>
   )

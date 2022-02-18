@@ -2,13 +2,9 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import NormalText from "../elements/text/Normal-text"
 import { Person as PersonType } from "./People-view"
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Box, Card, CardActions, CardContent, Button, Typography, Link as GoToLink } from '@mui/material';
 import Title from "../elements/text/Title";
+import BoxInline from "../elements/Box-inline";
 
 type Props = {
   person: PersonType
@@ -28,8 +24,18 @@ const Person = (props: Props) => {
     <Box sx={{  margin: 4  }}>
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
-          <Title title={ `Name: ${name} `} />
-          <NormalText text={`Gender : ${gender}`} />
+          <BoxInline>
+            <Title title={name} />
+            <NormalText size={12} color="#aaa" text={`${gender}`} />
+          </BoxInline>
+          <BoxInline>
+            <NormalText text={`Height : ${height}`} />
+            <NormalText text={`mass : ${mass}`} />
+          </BoxInline>
+          <br />
+          <GoToLink sx={{ alignItems: 'center'}} href={ homeworld } target="_blank" underline="hover" >
+            homeworld
+          </GoToLink>
         </CardContent>
         <CardActions>
           <Link to={`/people/${name}`}>

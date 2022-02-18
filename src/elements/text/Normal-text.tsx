@@ -6,11 +6,12 @@ type Props = {
   size?: number,
   color?: string,
   variant?: any
+  align?: CanvasTextAlign
 }
 
-function NormalText({text, color, size, variant}: Props) {
+function NormalText({text, color, size, variant, align = "left"}: Props) {
   return (
-    <Typography sx={{ fontSize: size? size : 14 }}  variant= {variant ? variant : 'body1'} color={ color? color : "text.primary"}>
+    <Typography sx={{ fontSize: size? size : 14, marginY: '.2rem'}} textAlign= {align}  variant= {variant ? variant : 'body1'} color={ color? color : "text.primary"}>
       {text}
     </Typography>
   )
