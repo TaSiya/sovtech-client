@@ -1,12 +1,18 @@
+import { Typography } from "@mui/material"
 import React from 'react'
 
 type Props = {
-  text: string
+  text: string,
+  size?: number,
+  color?: string,
+  variant?: any
 }
 
-function NormalText({text}: Props) {
+function NormalText({text, color, size, variant}: Props) {
   return (
-    <div>{text}</div>
+    <Typography sx={{ fontSize: size? size : 14 }}  variant= {variant ? variant : 'body1'} color={ color? color : "text.primary"}>
+      {text}
+    </Typography>
   )
 }
 

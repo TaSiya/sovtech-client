@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material"
 import React from 'react'
 
 type Props = {
@@ -6,7 +7,9 @@ type Props = {
 
 function Title({title}: Props) {
   return (
-    <p>{title}</p>
+    <Typography sx={{ fontSize: 14 }}  variant="h1" color="text.primary">
+      {title}
+    </Typography>
   )
 }
 

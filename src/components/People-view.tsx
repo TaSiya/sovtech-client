@@ -1,3 +1,4 @@
+import { Box } from "@mui/material"
 import React from 'react'
 import NormalText from "../elements/text/Normal-text"
 import PersonComponent from "./Person"
@@ -23,7 +24,14 @@ const PeopleView = (props: Props) => {
     )
   }
   return (
-    <>
+    <Box sx={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      p: 1,
+      m: 1,
+      borderRadius: 1,
+      justifyContent: "center"
+    }}>
     {
       people.map((person, idx) => {
         if (person) {
@@ -32,7 +40,7 @@ const PeopleView = (props: Props) => {
         }
       })
     }
-    </>
+    </Box>
   )
 }
 

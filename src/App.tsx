@@ -15,7 +15,7 @@ function App() {
       <ContextProvider>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/people/:name' element={<PersonProfile  />} />
+          <Route path='/people/:personName' element={<PersonProfile  />} />
         </Routes>
          
       </ContextProvider>
