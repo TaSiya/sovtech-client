@@ -9,13 +9,11 @@ import AppContext from '../App-context'
 const people_query = gql`
 query getPeople($page: Int) {
   people(page: $page) {
-    next
-    previous
-    results {
       name
       gender
       homeworld
-    }
+      mass
+      height
   }
 }
 `
@@ -34,12 +32,12 @@ const Home = (props: Props) => {
 
   if (loading) return <NormalText text="loaading data..." />
   if (error) return <NormalText text={"Error: " + error} />
-  const { results, next, previous } = data.people
+  const people = data.people
   return (
     <>
       <Title title="Home page" />
-      <PeopleView people={results} />
-      <Pagination next={next} previous={previous} />
+      <PeopleView people={people} />
+      <Pagination />
     </>
   )
 }

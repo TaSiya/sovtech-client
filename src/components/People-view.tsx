@@ -1,13 +1,14 @@
 import React from 'react'
+import NormalText from "../elements/text/Normal-text"
 import PersonComponent from "./Person"
 
 export type Person = {
   __typename: String
-  name: String
-  height: number
-  mass: number
-  gender: String
-  homeworld: String
+  name: string
+  height: string
+  mass: string
+  gender: string
+  homeworld: string
 }
 
 type Props = {
@@ -16,6 +17,11 @@ type Props = {
 
 const PeopleView = (props: Props) => {
   const { people } = props
+  if (!people) {
+    return (
+      <NormalText text="No more people to view" />
+    )
+  }
   return (
     <>
     {

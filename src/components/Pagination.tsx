@@ -1,10 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react'
 import AppContext from "../App-context"
+import Button from '@mui/material/Button';
 
 
 type Props = {
-  next: string
-  previous: string
 }
 
 const Pagination = (props: Props) => {
@@ -18,24 +17,24 @@ const Pagination = (props: Props) => {
   // },[pageNumb])
   return (
     <>
-    <button onClick={() => {
+    <Button onClick={() => {
         const goTo = currentPage - 1
         updateCurrentPage(goTo)
         setPageNumb(goTo)
       }
     }>
       Previous page
-    </button>
+    </Button>
     <br />
     <input type="number" min="1" placeholder="Enter page number" value={pageNumb} onChange={e => {
       const page = e.target.value
       setPageNumb(Number(page))
     }} />
-    <button onClick={() => updateCurrentPage(pageNumb) }>
+    <Button  variant="contained" onClick={() => updateCurrentPage(pageNumb) }>
       Go to page
-    </button>
+    </Button>
     <br />
-    <button 
+    <Button 
       onClick={() => {
         const goTo = currentPage + 1
         updateCurrentPage(goTo)
@@ -43,7 +42,7 @@ const Pagination = (props: Props) => {
       }
     }>
       Next page
-    </button>
+    </Button>
     </>
   )
 }
