@@ -11,7 +11,7 @@ import {
   gql
 } from "@apollo/client";
 
-const server = 'http://localhost:4000'
+const server = "https://calm-reaches-16916.herokuapp.com" || 'http://localhost:4000'
 
 const client = new ApolloClient({
   uri: server,
