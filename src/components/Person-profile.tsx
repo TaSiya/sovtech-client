@@ -2,6 +2,8 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import {gql, useQuery } from '@apollo/client'
 import NormalText from "../elements/text/Normal-text"
+import Person from './Person'
+import { Box, CircularProgress } from "@mui/material"
 
 type Props = {}
 
@@ -24,15 +26,14 @@ const PersonProfile = (props: Props) => {
       name: personName
     }
   })
-  if (loading)  return <NormalText text="loading data..." />
-
+  if (loading)  return (
+    <Box sx={{display: 'flex', justifyContent: 'center', marginY: '20rem'}}>
+      <CircularProgress size={150} />
+    </Box>
+  ) 
   if (error) return <NormalText text={`Error: ${error}`} />
-
-  const { name, gender, homeworld, mass, height} = data.searchByName
-    
-  console.log("person data", name, gender, homeworld, mass, height)
   return (
-    <div>PersonProfile</div>
+    <Person person={data.searchByName} />
   )
 }
 

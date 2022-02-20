@@ -3,11 +3,12 @@ import React from 'react'
 
 type Props = {
   title: string
+  align?: string
 }
 
-function Title({title}: Props) {
+function Title({title, align ='left'}: Props) {
   return (
-    <Typography sx={{ }}  variant="h6" color="text.primary">
+    <Typography sx={{textAlign: align }}  variant="h5" color="text.primary">
       {title}
     </Typography>
   )

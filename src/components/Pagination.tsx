@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
 import AppContext from "../App-context"
 import Button from '@mui/material/Button';
-import { TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import BoxInline from "../elements/Box-inline";
 
 
@@ -18,22 +18,24 @@ const Pagination = (props: Props) => {
   //   }
   // },[pageNumb])
   return (
-    <BoxInline>
-      <Button disabled={currentPage < 2} onClick={() => {
-          
+    <Box sx={{display: 'flex', justifyContent: "center"}}>
+      <Button 
+        disabled={currentPage < 2} 
+        onClick={() => {
           const goTo = currentPage - 1
           updateCurrentPage(goTo)
           setPageNumb(goTo)
-        }
-      }>
+        }}
+        sx={{marginX: '1rem'}}
+        >
         Previous page
       </Button>
       <br />
-      <input type="number" min="1"  placeholder="Enter page number" value={pageNumb} onChange={e => {
+      <input type="number" min="1" style={{textAlign: 'center', fontSize: 13}}  placeholder="Enter page number" value={pageNumb} onChange={e => {
         const page = e.target.value
         setPageNumb(Number(page))
       }} />
-      <Button disabled={pageNumb < 1 || pageNumb > 9}  variant="contained" onClick={() => updateCurrentPage(pageNumb) }>
+      <Button sx={{marginX: '1rem'}} disabled={pageNumb < 1 || pageNumb > 9}  variant="contained" onClick={() => updateCurrentPage(pageNumb) }>
         Go to page
       </Button>
       <br />
@@ -47,7 +49,7 @@ const Pagination = (props: Props) => {
       }>
         Next page
       </Button>
-    </BoxInline>
+    </Box>
   )
 }
 

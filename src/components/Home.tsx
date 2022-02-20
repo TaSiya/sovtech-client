@@ -5,7 +5,7 @@ import NormalText from "../elements/text/Normal-text"
 import PeopleView from "./People-view"
 import Pagination from "./Pagination"
 import AppContext from '../App-context'
-import { Box } from "@mui/material"
+import { Box, CircularProgress } from "@mui/material"
 import Image from '../elements/Image'
 import logo from '../starwars2.png'
 
@@ -33,13 +33,15 @@ const Home = (props: Props) => {
     }
   })
 
-  if (loading) return <NormalText text="loaading data..." />
+  if (loading) return (
+    <Box sx={{display: 'flex', justifyContent: 'center', marginY: '20rem'}}>
+      <CircularProgress size={150} />
+    </Box>
+  ) 
   if (error) return <NormalText text={"Error: " + error} />
   const people = data.people
   return (
     <Box sx={{backgroundColor: "#eee"}}>
-      <Title title="Home page" />
-      {/* <Image logo={logo} /> */}
       <PeopleView people={people} />
       <Pagination />
     </Box>

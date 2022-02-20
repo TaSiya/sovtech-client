@@ -7,7 +7,7 @@ type Props = {
 
 const BoxInline = ({children}: Props) => {
   return (
-    <Box sx={{ display: "flex", justifyContent: 'center'}}>
+    <Box sx={{ display: "flex", justifyContent: 'space-between'}}>
       {children}
     </Box>
   )
