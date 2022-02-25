@@ -41,7 +41,7 @@ const Home = (props: Props) => {
   if (error) return <NormalText text={"Error: " + error} />
   const people = data.people
   return (
-    <Box sx={{backgroundColor: "#eee"}}>
+    <Box sx={{}}>
       <PeopleView people={people} />
       <Pagination />
     </Box>

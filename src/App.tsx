@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <ContextProvider>
-        <Box sx={{backgroundColor: '#eee', height: '92rem', paddingY: '3rem'}}>
+        <Box sx={{paddingY: '3rem'}}>
           <Title align="center" title="Welcome to SWAPI..." />
           <Routes>
             <Route path='/' element={<Home />} />

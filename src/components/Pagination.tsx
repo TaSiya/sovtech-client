@@ -18,7 +18,7 @@ const Pagination = (props: Props) => {
   //   }
   // },[pageNumb])
   return (
-    <Box sx={{display: 'flex', justifyContent: "center"}}>
+    <Box sx={{display: 'flex', justifyContent: "center", marginBottom: 3}}>
       <Button 
         disabled={currentPage < 2} 
         onClick={() => {
